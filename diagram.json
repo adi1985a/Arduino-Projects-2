@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "author": "Imper Software",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -271.8, "left": -83.6, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 275.2,
+      "left": 293.6,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -195.6, "left": 23, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -195.6,
+      "left": 119,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -195.6,
+      "left": 71,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -120,
+      "left": 9.05,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -120,
+      "left": 57.05,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -120,
+      "left": 105.05,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "lcd1:SCL", "uno:A5", "green", [ "h0" ] ],
+    [ "lcd1:SDA", "uno:A4", "yellow", [ "h0" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "lcd1:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "bb1:12b.j", "uno:2", "green", [ "v86.4", "h19.2" ] ],
+    [ "bb1:17b.j", "uno:3", "green", [ "v105.6", "h-48" ] ],
+    [ "bb1:22b.j", "uno:4", "green", [ "v96", "h-105.6" ] ],
+    [ "uno:GND.1", "bb1:bp.15", "black", [ "v0" ] ],
+    [ "led1:A", "bb1:12b.f", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:11b.f", "", [ "$bb" ] ],
+    [ "led2:A", "bb1:22b.f", "", [ "$bb" ] ],
+    [ "led2:C", "bb1:21b.f", "", [ "$bb" ] ],
+    [ "led3:A", "bb1:17b.f", "", [ "$bb" ] ],
+    [ "led3:C", "bb1:16b.f", "", [ "$bb" ] ],
+    [ "r2:1", "bb1:16b.g", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:bp.12", "", [ "$bb" ] ],
+    [ "r3:1", "bb1:21b.g", "", [ "$bb" ] ],
+    [ "r3:2", "bb1:bp.16", "", [ "$bb" ] ],
+    [ "r1:1", "bb1:11b.g", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:bp.8", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
