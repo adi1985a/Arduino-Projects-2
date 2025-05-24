@@ -141,8 +141,6 @@ To include a demonstration:
 ![Demo](screenshots/led-lcd-demo.gif)
 ```
 
-Add your `.gif` or image inside a `screenshots/` folder in the repo.
-
 ---
 
 ## 💡 Ideas for Expansion
