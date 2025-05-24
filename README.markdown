@@ -118,3 +118,50 @@ void loop() {
     }
   }
 }
+```
+
+---
+
+## ▶️ Installation & Usage
+
+1. Open the **Arduino IDE**.
+2. Go to **Tools > Manage Libraries** and install the `LiquidCrystal_I2C` library.
+3. Copy and upload the provided code to your Arduino board.
+4. Open the **Serial Monitor** at `9600 baud`.
+5. Observe the LED sequencing and real-time status updates on the LCD.
+
+---
+
+## 🖼️ Screenshots / Demo
+
+_Coming soon!_  
+To include a demonstration:
+
+```markdown
+![Demo](screenshots/led-lcd-demo.gif)
+```
+
+Add your `.gif` or image inside a `screenshots/` folder in the repo.
+
+---
+
+## 💡 Ideas for Expansion
+
+- 🔘 Add buttons for manual LED switching  
+- 🌡️ Add temperature or light sensors  
+- 🌍 Translate output to other languages  
+- ⏲️ Add adjustable delay via a potentiometer  
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).  
+Free to use and modify for educational or personal purposes.
+
+---
+
+## 👤 Author
+
+**Adrian Lesniak**  
+Arduino & Software Enthusiast
