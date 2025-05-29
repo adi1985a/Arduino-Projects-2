@@ -19,9 +19,8 @@ Each LED follows a timed cycle:
 **Red → Yellow → Green**  
 Each state is displayed with an ON/OFF status indicator.
 
-<p align="center">
-  <img src="screenshots/1.gif" alt="Application Screenshots Slider" width="700">
-</p>
+![Demo GIF](screenshots/1.gif)
+
 ---
 
 ## ✨ Features
@@ -139,7 +138,6 @@ void loop() {
  
 To include a demonstration:
 
-```markdown
 <p align="center">
   <img src="1.jpg" width="300"/>
   <img src="2.jpg" width="300"/>
@@ -148,7 +146,7 @@ To include a demonstration:
   <img src="5.jpg" width="300"/>
   <img src="6.jpg" width="300"/>
 </p>
-```
+
 
 ---
 
