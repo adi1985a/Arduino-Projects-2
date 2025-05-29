@@ -19,6 +19,7 @@ Each LED follows a timed cycle:
 **Red → Yellow → Green**  
 Each state is displayed with an ON/OFF status indicator.
 
+![Demo GIF](screenshots/1.gif)
 ---
 
 ## ✨ Features
