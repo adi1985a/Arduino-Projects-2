@@ -1,70 +1,92 @@
-# Arduino LED Sequence with I2C LCD Display
+# 🚦 Arduino LED Sequence with I2C LCD Display
 
-**An Arduino project that cycles through three LEDs (Red, Yellow, Green) and displays their state on an I2C 16x2 LCD and Serial Monitor.**
+An interactive Arduino project that cycles through Red, Yellow, and Green LEDs while displaying their status in real-time on both an I2C 16x2 LCD and the Serial Monitor.
 
-## Description
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Language: C++](https://img.shields.io/badge/Language-C%2B%2B-blue.svg)](https://isocpp.org/)
+[![Platform: Arduino](https://img.shields.io/badge/Platform-Arduino-orange.svg)](https://www.arduino.cc/)
 
-This project demonstrates how to sequentially control three LEDs using an Arduino and visually represent their status on a 16x2 I2C LCD. The LED status (ON/OFF) updates every 2 seconds and is displayed both on the LCD and the Serial Monitor. Each LED lights up in a repeating cycle: **Red → Yellow → Green**.
+---
 
-## Components Required
+## 📖 Description
 
-- Arduino board (e.g., Uno, Nano)
-- 3 LEDs (Red, Yellow, Green)
-- 3 resistors (220Ω recommended)
-- I2C 16x2 LCD (address: `0x27`)
-- Breadboard and jumper wires
-- USB cable for programming
+This project demonstrates how to sequentially control three LEDs (Red, Yellow, Green) using an Arduino. The LED states are updated every 2 seconds and visually displayed on:
 
-## Features
+- 🖥️ A 16x2 I2C LCD screen  
+- 📟 The Serial Monitor (9600 baud)
 
-- ✅ Automatic LED cycling with 2-second intervals
-- ✅ Real-time status display on LCD and Serial Monitor
-- ✅ Clean separation of LED control and display logic
+Each LED follows a timed cycle:  
+**Red → Yellow → Green**  
+Each state is displayed with an ON/OFF status indicator.
 
-## Wiring
+---
 
-### LED Connections
+## ✨ Features
 
-| LED Color | Arduino Pin | Resistor | 
+✅ Automatic LED sequencing (2-second intervals)  
+✅ Real-time status output to I2C LCD and Serial Monitor  
+✅ Clean separation of logic for control and display  
+✅ Simple and scalable for further expansion  
+
+---
+
+## 🛠 Components Required
+
+| Component             | Quantity |
+|-----------------------|----------|
+| Arduino Uno/Nano      | 1        |
+| 16x2 I2C LCD Display  | 1        |
+| LEDs (Red, Yellow, Green) | 3    |
+| Resistors (220Ω)      | 3        |
+| Breadboard + Wires    | As needed |
+| USB Cable             | 1        |
+
+---
+
+## 🔌 Wiring Guide
+
+### 🔴 LED Connections
+
+| LED Color | Arduino Pin | Resistor |
 |-----------|-------------|----------|
 | Red       | D2          | 220Ω     |
 | Yellow    | D3          | 220Ω     |
 | Green     | D4          | 220Ω     |
 
-### I2C LCD Connections
+### 📺 I2C LCD Connections
 
-| LCD Pin | Arduino Pin |
-|---------|-------------|
-| GND     | GND         |
-| VCC     | 5V          |
-| SDA     | A4 (Uno/Nano) |
-| SCL     | A5 (Uno/Nano) |
+| LCD Pin | Arduino Pin     |
+|---------|------------------|
+| GND     | GND              |
+| VCC     | 5V               |
+| SDA     | A4 (Uno/Nano)    |
+| SCL     | A5 (Uno/Nano)    |
 
-> ⚠️ I2C address may vary. If your LCD does not respond, scan for its address using an I2C scanner sketch.
+> ⚠️ **Note:** If your LCD doesn’t display anything, use an I2C scanner sketch to detect its address. Default: `0x27`.
 
-## Code Overview
+---
+
+## 💡 Code Overview
 
 ```cpp
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-LiquidCrystal_I2C lcd(0x27, 16, 2);  // LCD I2C address
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-const int ledPins[] = {2, 3, 4};  // Pins for LEDs
+const int ledPins[] = {2, 3, 4};
 const char* ledNames[] = {"Czerwona", "Zolta", "Zielona"};
 int ledIndex = 0;
 bool ledState = true;
 unsigned long previousMillis = 0;
-const long interval = 2000;  // 2-second interval
+const long interval = 2000;
 
 void setup() {
   lcd.init();
   lcd.backlight();
   Serial.begin(9600);
 
-  for (int i = 0; i < 3; i++) {
-    pinMode(ledPins[i], OUTPUT);
-  }
+  for (int i = 0; i < 3; i++) pinMode(ledPins[i], OUTPUT);
 
   digitalWrite(ledPins[ledIndex], HIGH);
   lcd.print(ledNames[ledIndex]);
@@ -83,9 +105,7 @@ void loop() {
     lcd.print(" - OFF");
     Serial.println(String(ledNames[ledIndex]) + " - OFF");
 
-    if (!ledState) {
-      ledIndex = (ledIndex + 1) % 3;
-    }
+    if (!ledState) ledIndex = (ledIndex + 1) % 3;
 
     ledState = !ledState;
     digitalWrite(ledPins[ledIndex], ledState ? HIGH : LOW);
@@ -100,18 +120,46 @@ void loop() {
 }
 ```
 
-## Installation
+---
 
-1. Open the Arduino IDE.
-2. Install the `LiquidCrystal_I2C` library via **Tools > Manage Libraries**.
-3. Upload the code to your Arduino board.
-4. Observe LED behavior and monitor output via the LCD and Serial Monitor (9600 baud).
+## ▶️ Installation & Usage
 
-## License
-
-This project is open-source and available under the MIT License.
+1. Open the **Arduino IDE**.
+2. Go to **Tools > Manage Libraries** and install the `LiquidCrystal_I2C` library.
+3. Copy and upload the provided code to your Arduino board.
+4. Open the **Serial Monitor** at `9600 baud`.
+5. Observe the LED sequencing and real-time status updates on the LCD.
 
 ---
 
-> 💡 You can extend this project by adding buttons to control LED switching manually or by integrating more sensors.
+## 🖼️ Screenshots / Demo
 
+_Coming soon!_  
+To include a demonstration:
+
+```markdown
+![Demo](screenshots/led-lcd-demo.gif)
+```
+
+---
+
+## 💡 Ideas for Expansion
+
+- 🔘 Add buttons for manual LED switching  
+- 🌡️ Add temperature or light sensors  
+- 🌍 Translate output to other languages  
+- ⏲️ Add adjustable delay via a potentiometer  
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).  
+Free to use and modify for educational or personal purposes.
+
+---
+
+## 👤 Author
+
+**Adrian Lesniak**  
+Arduino & Software Enthusiast
