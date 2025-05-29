@@ -19,7 +19,9 @@ Each LED follows a timed cycle:
 **Red → Yellow → Green**  
 Each state is displayed with an ON/OFF status indicator.
 
-![Demo GIF](screenshots/1.gif)
+<p align="center">
+  <img src="screenshots/1.gif" alt="Application Screenshots Slider" width="700">
+</p>
 ---
 
 ## ✨ Features
@@ -134,12 +136,18 @@ void loop() {
 ---
 
 ## 🖼️ Screenshots / Demo
-
-_Coming soon!_  
+ 
 To include a demonstration:
 
 ```markdown
-![Demo](screenshots/led-lcd-demo.gif)
+<p align="center">
+  <img src="1.jpg" width="300"/>
+  <img src="2.jpg" width="300"/>
+  <img src="3.jpg" width="300"/>
+  <img src="4.jpg" width="300"/>
+  <img src="5.jpg" width="300"/>
+  <img src="6.jpg" width="300"/>
+</p>
 ```
 
 ---
